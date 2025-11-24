@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Praktikum</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #111, #1a1a1a);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(45deg, #ff48c4, #00ff88);
+            color: #000;
+        }
+
+        /* ==== GAMBAR DIPERBESAR ==== */
+        header img {
+            width: 320px;              /* versi diperbesar */
+            max-width: 90%;
+            border-radius: 16px;
+            box-shadow: 0 0 25px #00ff88;
+            animation: glow 2.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 12px #ff48c4; }
+            to   { box-shadow: 0 0 35px #00ff88; }
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #222;
+            border-radius: 14px;
+            box-shadow: 0 0 20px rgba(0, 255, 110, 0.25);
+        }
+
+        h3 {
+            background: #00ff88;
+            color: #000;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            font-weight: 600;
+        }
+
+        h3:hover {
+            background: #ff48c4;
+            color: #fff;
+        }
+
+        .content {
+            padding: 10px 0 20px 0;
+        }
+
+        /* ==== MODE BERANTAKAN UPDATE WARNA HIJAU ==== */
+        .messy {
+            background: #00ff88 !important;
+            color: #000 !important;
+            font-size: 22px !important;
+            transform: rotate(1deg);
+            letter-spacing: 3px;
+        }
+
+        .messy h3 {
+            background: #00cc66 !important;
+            color: #000 !important;
+        }
+
+        .switch-btn {
+            display: block;
+            width: 180px;
+            margin: 30px auto;
+            padding: 12px;
+            background: #00ff88;
+            color: #000;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .switch-btn:hover {
+            background: #ff48c4;
+            color: #fff;
+        }
+
+        /* ==== RESPONSIVE ==== */
+        @media (max-width: 768px) {
+            header img {
+                width: 250px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                width: 92%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header img {
+                width: 200px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <img src="wicked.jpg" alt="Wicked Image">
+        <h1>LAPORAN PRAKTIKUM</h1>
+        <h2>Ahrakial Wirda | 202431141</h2>
+    </header>
+
+    <div class="container">
+        
+        <h3 onclick="toggleContent('a')">a. Mengapa menggunakan CSS dan JavaScript dalam pemrograman web modern?</h3>
+        <div id="a" class="content">
+            CSS digunakan untuk mengatur tampilan agar lebih menarik, terstruktur, dan profesional. 
+            JavaScript digunakan untuk membuat halaman menjadi interaktif dan dinamis sehingga pengalaman pengguna menjadi lebih baik.
+        </div>
+
+        <h3 onclick="toggleContent('b')">b. Jelaskan konsep dan tujuan utama dari Responsive Web Design (RWD)!</h3>
+        <div id="b" class="content">
+            RWD adalah teknik desain web agar tampilan menyesuaikan ukuran layar (PC, tablet, smartphone). 
+            Tujuannya agar website tetap nyaman digunakan dalam berbagai perangkat tanpa perlu membuat versi terpisah.
+        </div>
+
+        <h3 onclick="toggleContent('c')">c. Bagaimana CSS, JavaScript, dan RWD saling melengkapi?</h3>
+        <div id="c" class="content">
+            CSS mengatur desain, JavaScript menambah interaktivitas, dan RWD memastikan tampilan tetap nyaman 
+            di berbagai perangkat. Ketiganya bekerja bersama untuk menciptakan website yang adaptif, modern, dan user-friendly.
+        </div>
+
+    </div>
+
+    <div class="switch-btn" onclick="toggleMode()">Switch Mode</div>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            const confirmHide = confirm("Sembunyikan konten ini?");
+            if (confirmHide) {
+                content.style.display = "none";
+            }
+        }
+
+        function toggleMode() {
+            document.body.classList.toggle("messy");
+            document.querySelector(".container").classList.toggle("messy");
+        }
+    </script>
+
+</body>
+</html>
